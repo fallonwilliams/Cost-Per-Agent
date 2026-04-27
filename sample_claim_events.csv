@@ -1,0 +1,9 @@
+claim_id,event_time,event_type,source_app,actor,subject,thread_id,document_type,evidence_url,notes
+CLAIM-001,2026-04-03T09:12:00-04:00,claim_submitted,gmail,claimant,Initial claim package,thread-001,initial_claim_package,secure://gmail/thread-001,Initial claim package sent.
+CLAIM-001,2026-04-11T16:45:00-04:00,acknowledgement,claim_portal,insurer,Initial claim package,thread-001,initial_claim_package,secure://portal/ack-001,Insurer acknowledged receipt.
+CLAIM-001,2026-04-08T14:21:00-04:00,document_uploaded,drive,claimant,Contractor estimate,thread-002,contractor_estimate,secure://drive/estimate.pdf,Estimate uploaded.
+CLAIM-001,2026-04-18T10:05:00-04:00,duplicate_request,email,adjuster,Contractor estimate,thread-002,contractor_estimate,secure://email/duplicate-002,Adjuster requested estimate already uploaded.
+CLAIM-001,2026-04-22T10:05:00-04:00,acknowledgement,email,adjuster,Contractor estimate,thread-002,contractor_estimate,secure://email/ack-002,Estimate finally acknowledged.
+CLAIM-001,2026-04-14T17:18:00-04:00,document_uploaded,claim_portal,claimant,Mitigation invoice,thread-003,mitigation_invoice,secure://portal/upload-003,Invoice uploaded.
+CLAIM-001,2026-04-24T09:00:00-04:00,silence_gap,manual_log,claimant,Mitigation invoice,thread-003,mitigation_invoice,secure://notes/silence-003,No acknowledgement received after follow-up.
+CLAIM-001,2026-04-25T15:30:00-04:00,escalation,email,claimant,Mitigation invoice,thread-003,mitigation_invoice,secure://email/escalation-003,Escalated to supervisor.
