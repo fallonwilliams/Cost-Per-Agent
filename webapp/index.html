@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Recursive Agent Cost Rankings</title>
+  <style>
+    body { font-family: system-ui, sans-serif; margin: 2rem; color: #111827; }
+    h1 { margin-bottom: 0.25rem; }
+    table { border-collapse: collapse; width: 100%; margin-top: 1rem; }
+    th, td { border: 1px solid #ddd; padding: 0.5rem; text-align: left; }
+    th { background: #f3f4f6; }
+  </style>
+</head>
+<body>
+  <h1>Recursive AI Agent Rankings</h1>
+  <p>Sorted by weighted cost score (lower is better).</p>
+  <button id="refresh">Refresh from API</button>
+  <table>
+    <thead>
+      <tr>
+        <th>#</th><th>Agent</th><th>Provider</th><th>Model</th><th>Runs</th><th>Total Cost</th><th>Avg Cost</th><th>Depth</th><th>Failure Rate</th><th>Score</th>
+      </tr>
+    </thead>
+    <tbody id="rows"></tbody>
+  </table>
+
+  <script>
+    const rows = document.getElementById("rows");
+    const API_BASE = "http://127.0.0.1:8000";
+
+    async function loadRankings() {
+      const sampleRuns = [
+        { agent_id: "a1", agent_name: "Planner", provider: "OpenAI", model: "gpt-5.3-mini", usd_cost: 0.012, recursion_depth: 2, latency_ms: 900, success: true },
+        { agent_id: "a1", agent_name: "Planner", provider: "OpenAI", model: "gpt-5.3-mini", usd_cost: 0.018, recursion_depth: 3, latency_ms: 1200, success: true },
+        { agent_id: "a2", agent_name: "Researcher", provider: "Anthropic", model: "claude-sonnet", usd_cost: 0.031, recursion_depth: 6, latency_ms: 1800, success: false }
+      ];
+      const res = await fetch(`${API_BASE}/agents/rank`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ runs: sampleRuns })
+      });
+      const data = await res.json();
+      rows.innerHTML = "";
+      data.rankings.forEach((r, i) => {
+        rows.innerHTML += `<tr><td>${i + 1}</td><td>${r.agent_name}</td><td>${r.provider}</td><td>${r.model}</td><td>${r.run_count}</td><td>$${r.total_cost_usd}</td><td>$${r.avg_cost_usd}</td><td>${r.avg_recursion_depth}</td><td>${(r.failure_rate * 100).toFixed(1)}%</td><td>${r.weighted_score}</td></tr>`;
+      });
+    }
+
+    document.getElementById("refresh").addEventListener("click", loadRankings);
+    loadRankings();
+  </script>
+</body>
+</html>
