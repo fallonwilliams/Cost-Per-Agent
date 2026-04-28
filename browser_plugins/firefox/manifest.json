@@ -1,0 +1,17 @@
+{
+  "manifest_version": 2,
+  "name": "Recursive Agent Cost Tracker",
+  "version": "1.0.0",
+  "description": "Captures recursive AI agent runs from browser apps and ranks them by cost.",
+  "permissions": ["storage", "activeTab", "<all_urls>"],
+  "background": {
+    "scripts": ["background.js"]
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content_script.js"],
+      "run_at": "document_idle"
+    }
+  ]
+}
