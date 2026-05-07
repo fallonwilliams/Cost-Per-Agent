@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Aura Claim Loop Analyzer
+Claim Loop Analyzer
 
 Purpose:
     Quantify insurance-claim administrative loops using connected-app timestamps.
