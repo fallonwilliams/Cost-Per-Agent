@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Aura API Server
+API Server
 
 Includes:
 - Claim recursive-loop analysis endpoints.
@@ -21,7 +21,7 @@ from claim_loop_analyzer import run_analysis
 
 
 app = FastAPI(
-    title="Aura Recursive Systems API",
+    title="Recursive Systems API",
     description=(
         "APIs for claim-loop analysis and ranking recursive AI agents by cost, "
         "with browser plugin integration metadata."
