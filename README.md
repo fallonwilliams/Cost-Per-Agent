@@ -1,15 +1,15 @@
-# Aura Recursive Systems Platform
+# Recursive Systems Platform
 
-Production-ready Python platform for:
+ platform for:
 
-1. **Insurance claim recursive-loop analysis** (legacy toolkit).
+1. * recursive-loop analysis** (legacy toolkit).
 2. **Recursive AI agent cost rankings**, with browser plugins for Chrome and Firefox.
 
 ---
 
 ## Features
 
-### A) Claim recursive-loop analytics
+### Enhancing AI systems with recursive-loop analytics
 
 Generates evidence-ready reports:
 
